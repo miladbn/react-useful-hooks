@@ -1,84 +1,96 @@
-# Turborepo starter
+# React Useful Hooks
 
-This Turborepo starter is maintained by the Turborepo core team.
+A collection of useful, production-ready React hooks built with TypeScript.
 
-## Using this example
+## Features
 
-Run the following command:
+- 🚀 Built with TypeScript
+- 📦 Published as ES modules and CommonJS
+- 🧪 Fully tested with Vitest and React Testing Library
+- 📚 Documented with Nextra
+- 🔧 Built with Turborepo and pnpm workspaces
+- 🎯 Zero dependencies (except React)
+- 🔍 ESLint and Prettier configured
+- 🐶 Git hooks with Husky and lint-staged
 
-```sh
-npx create-turbo@latest
+## Available Hooks
+
+- `useToggle` - A hook for managing boolean state with toggle functionality
+
+## Getting Started
+
+### Installation
+
+```bash
+# Install the package
+pnpm add @react-useful-hooks/react-hooks
 ```
 
-## What's inside?
+### Usage
 
-This Turborepo includes the following packages/apps:
+```tsx
+import { useToggle } from "@react-useful-hooks/react-hooks";
 
-### Apps and Packages
+function MyComponent() {
+  const [isOpen, toggle, setOpen] = useToggle(false);
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+  return (
+    <div>
+      <button onClick={toggle}>{isOpen ? "Close" : "Open"}</button>
+      {isOpen && <div>Content</div>}
+    </div>
+  );
+}
 ```
 
-### Develop
+## Development
 
-To develop all apps and packages, run the following command:
+### Prerequisites
 
-```
-cd my-turborepo
+- Node.js >= 18
+- pnpm >= 9.0.0
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/react-useful-hooks.git
+cd react-useful-hooks
+
+# Install dependencies
+pnpm install
+
+# Start development
 pnpm dev
 ```
 
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+### Project Structure
 
 ```
-cd my-turborepo
-npx turbo login
+.
+├── apps/
+│   └── docs/          # Documentation site (Nextra)
+├── packages/
+│   └── react-hooks/   # React hooks package
+└── package.json       # Root package.json
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+### Available Scripts
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+- `pnpm dev` - Start development server
+- `pnpm build` - Build all packages
+- `pnpm test` - Run tests
+- `pnpm lint` - Run ESLint
+- `pnpm format` - Format code with Prettier
 
-```
-npx turbo link
-```
+## Documentation
 
-## Useful Links
+Visit our [documentation site](http://localhost:3001) for detailed API reference and examples.
 
-Learn more about the power of Turborepo:
+## Contributing
 
-- [Tasks](https://turbo.build/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/docs/reference/command-line-reference)
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
