@@ -7,7 +7,8 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "turbo run test"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
