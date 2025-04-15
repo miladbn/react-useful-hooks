@@ -1,4 +1,4 @@
 // Export all hooks
-export * from "./use-counter";
-export * from "./use-toggle";
-export * from "./unref-element";
+export { useCounter } from "./use-counter";
+export { useToggle } from "./use-toggle";
+export { unrefElement } from "./unref-element";
