@@ -8,5 +8,13 @@
   "hooks/use-toggle": {
     "title": "useToggle",
     "type": "page"
+  },
+  "hooks/use-counter": {
+    "title": "useCounter",
+    "type": "page"
+  },
+  "hooks/unref-element": {
+    "title": "unrefElement",
+    "type": "page"
   }
-} 
+}

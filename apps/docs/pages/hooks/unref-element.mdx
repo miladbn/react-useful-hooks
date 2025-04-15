@@ -1,0 +1,68 @@
+# unrefElement
+
+A utility function that safely unwraps a React ref object to get its underlying DOM element. This is the React equivalent of Vue's unrefElement.
+
+## Usage
+
+```tsx
+import { unrefElement } from '@react-useful-hooks/react-hooks';
+
+function MyComponent() {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  
+  useEffect(() => {
+    const button = unrefElement(buttonRef);
+    if (button) {
+      // Do something with the button element
+      button.addEventListener('click', handleClick);
+      return () => button.removeEventListener('click', handleClick);
+    }
+  }, []);
+
+  return <button ref={buttonRef}>Click me</button>;
+}
+```
+
+## API
+
+### Parameters
+
+- `elRef`: A React RefObject pointing to an element, or the element itself (or null/undefined).
+
+### Returns
+
+The underlying DOM element or null/undefined.
+
+## Examples
+
+### Basic Usage
+
+```tsx
+const buttonRef = useRef<HTMLButtonElement>(null);
+const button = unrefElement(buttonRef);
+```
+
+### With Direct Element
+
+```tsx
+const element = document.getElementById('my-element');
+const unwrapped = unrefElement(element); // Returns the same element
+```
+
+### In Event Handlers
+
+```tsx
+function handleClick(event: React.MouseEvent) {
+  const target = unrefElement(event.target);
+  if (target instanceof HTMLButtonElement) {
+    // Do something with the button
+  }
+}
+```
+
+## When to Use
+
+- When you need to safely access the DOM element from a React ref
+- When working with third-party libraries that expect DOM elements
+- When you need to handle both ref objects and direct elements in the same way
+- When you want to ensure type safety when accessing DOM elements 
