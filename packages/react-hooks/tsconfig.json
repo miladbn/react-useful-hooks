@@ -15,7 +15,8 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
     "outDir": "dist",
-    "types": ["vitest"]
+    "types": ["vitest"],
+    "tsBuildInfoFile": "./dist/.tsbuildinfo"
   },
   "include": ["src", "vitest.config.ts"],
   "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx"]
