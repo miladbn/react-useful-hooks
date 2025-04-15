@@ -1,4 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const withNextra = require('nextra')({
+  theme: 'nextra-theme-docs',
+  themeConfig: './theme.config.js',
+  defaultShowCopyCode: true,
+  mdxOptions: {
+    remarkPlugins: [],
+    rehypePlugins: []
+  }
+});
 
-export default nextConfig;
+module.exports = withNextra({
+  reactStrictMode: true,
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+});

@@ -1,0 +1,47 @@
+# useToggle
+
+A hook that provides a boolean state and functions to toggle it.
+
+## Usage
+
+```tsx
+import { useToggle } from '@react-useful-hooks/react-hooks';
+
+function MyComponent() {
+  const [isOpen, toggle, setOpen] = useToggle(false);
+
+  return (
+    <div>
+      <button onClick={toggle}>
+        {isOpen ? 'Close' : 'Open'}
+      </button>
+      {isOpen && <div>Content</div>}
+    </div>
+  );
+}
+```
+
+## API
+
+### Parameters
+
+- `initialState` (optional): The initial state of the toggle. Defaults to `false`.
+
+### Returns
+
+A tuple containing:
+1. `state`: The current boolean state
+2. `toggle`: A function to toggle the state
+3. `setState`: A function to set the state directly
+
+## Example
+
+```tsx
+const [isDark, toggleDark, setDark] = useToggle(false);
+
+// Toggle the state
+toggleDark();
+
+// Set state directly
+setDark(true);
+``` 
